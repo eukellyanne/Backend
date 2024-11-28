@@ -1,6 +1,7 @@
 package br.com.alunoonline.api.controller;
 
 import br.com.alunoonline.api.dtos.AtualizarNotasRequest;
+import br.com.alunoonline.api.dtos.HistoricoAlunoResponse;
 import br.com.alunoonline.api.model.MatriculaAluno;
 import br.com.alunoonline.api.service.MatriculaAlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +17,17 @@ public class MatriculaAlunoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void criarMatriculaAluno(@RequestBody MatriculaAluno matriculaAluno){
+    public void criarMatricula(@RequestBody MatriculaAluno matriculaAluno) {
         matriculaAlunoService.criarMatricula(matriculaAluno);
     }
 
     @PatchMapping("/trancar/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void trancarMatricula(@PathVariable Long id){
-
+    public void trancarMatricula(@PathVariable Long id) {
+        matriculaAlunoService.trancarMatricula(id);
     }
 
-    @PatchMapping ("/atualiza-notas/{id}")
+    @PatchMapping("/atualiza-notas/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizaNotas(@RequestBody AtualizarNotasRequest atualizarNotasRequest,
                               @PathVariable Long id)
@@ -34,5 +35,9 @@ public class MatriculaAlunoController {
         matriculaAlunoService.atualizaNotas(id, atualizarNotasRequest);
     }
 
+    @GetMapping("/emitir-historico/{alunoId}")
+    @ResponseStatus(HttpStatus.OK)
+    public HistoricoAlunoResponse emitirHistorico(@PathVariable Long alunoId) {
+        return matriculaAlunoService.emitirHistorico(alunoId);
+    }
 }
-
