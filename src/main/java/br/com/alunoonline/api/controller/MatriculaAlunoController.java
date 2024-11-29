@@ -30,8 +30,7 @@ public class MatriculaAlunoController {
     @PatchMapping("/atualiza-notas/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizaNotas(@RequestBody AtualizarNotasRequest atualizarNotasRequest,
-                              @PathVariable Long id)
-    {
+                              @PathVariable Long id) {
         matriculaAlunoService.atualizaNotas(id, atualizarNotasRequest);
     }
 
@@ -40,4 +39,5 @@ public class MatriculaAlunoController {
     public HistoricoAlunoResponse emitirHistorico(@PathVariable Long alunoId) {
         return matriculaAlunoService.emitirHistorico(alunoId);
     }
+   String nome = "Kellyanne";
 }
