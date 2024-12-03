@@ -10,7 +10,7 @@ API desenvolvida em Java para gestão acadêmica, otimizando o gerenciamento de 
   
   - *Configurações principais da API*:
     
-  - `SwaggerConfig`: Configura o Swagger para gerar a documentação interatica da API, exibindo os endpoints e suas descrições.
+  - `SwaggerConfig`: Configura o Swagger para gerar a documentação interativa da API, exibindo os endpoints e suas descrições.
 
 - **`controller`** -> Que tem como objetivo definir as rotas da aplicação (endpoints da API) e verifica as requisições do cliente.
   
